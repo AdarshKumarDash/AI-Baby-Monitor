@@ -54,9 +54,9 @@ function draw() {
                 alarm.play();
             }
         }
+        if (object.length == 0) {
+            document.getElementById("babysts").innerHTML = "Baby Not Found";
+            alarm.play();
+        }
     }
-}
-
-function stop() {
-    alarm.stop();
 }
