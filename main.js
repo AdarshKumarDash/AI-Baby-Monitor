@@ -1,6 +1,9 @@
 status = "";
 object = [];
-alarm = "alarm.mp3";
+
+function preload() {
+    alarm = loadSound("alarm.mp3");
+}
 
 function setup() {
     canvas = createCanvas(640, 460);
@@ -45,7 +48,8 @@ function draw() {
             document.getElementById("status").innerHTML = "Object Detected";
             if (object[i].label == "person") {
                 document.getElementById("babysts").innerHTML = "Baby Found";
-            } else if(object[i].label != "person" || object[i].label == "") {
+                alarm.stop();
+            } else {
                 document.getElementById("babysts").innerHTML = "Baby Not Found";
                 alarm.play();
             }
